@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# App data (your notes live here — never commit them)
+data/
+*.db
+*.sqlite3
+*.sqlite3-*
+
+# Secrets / config
+.env
+
+# TLS certificates
+certs/
+*.pem
+*.key
+*.crt
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+
+# iOS (the Xcode project and Info.plist are generated from ios/project.yml)
+ios/AiNotetaker.xcodeproj/
+ios/AiNotetaker/Info.plist
+ios/build/
+ios/DerivedData/
+xcuserdata/
+*.xcuserstate
+
+# Your personal signing team — never shared, survives `xcodegen generate`
+ios/Config/Local.xcconfig
+
+# Test caches
+.pytest_cache/
+
