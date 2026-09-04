@@ -1,0 +1,11 @@
+# PREFER the standalone binary instead:  ./scripts/install-deepfilter.sh
+# (no PyTorch, real-time on CPU). This pip route is legacy and, as of
+# deepfilternet 0.5.6, requires torchaudio<2.1 (it imports torchaudio.backend,
+# removed in newer releases).
+# Needs PyTorch. On a CPU-only server install the smaller CPU build first:
+#   pip install torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+#   pip install -r requirements-denoise.txt
+# Then set DENOISE_ENGINE=auto (default) or =deepfilternet in .env.
+torch>=2.0
+torchaudio>=2.0,<2.1
+deepfilternet>=0.5

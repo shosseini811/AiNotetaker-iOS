@@ -1,0 +1,9 @@
+// Copy of this file lives at Config/Local.xcconfig (git-ignored) — created
+// automatically by ./generate.sh on first run. It survives `xcodegen generate`,
+// unlike a team picked in Xcode's Signing & Capabilities UI.
+//
+// Find your Team ID: Xcode → Settings → Accounts → select your Apple ID →
+// select your team → "Team ID" shown there. Or leave blank and pick the team
+// once in Xcode's Signing & Capabilities UI, then copy the ID it resolves to
+// from here: AiNotetaker.xcodeproj/project.pbxproj (search DEVELOPMENT_TEAM).
+DEVELOPMENT_TEAM =

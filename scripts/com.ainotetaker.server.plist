@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  AiNotetaker server as a macOS LaunchAgent.
+
+  Install (adjust __HOME__ if your username differs):
+    sed "s|__HOME__|$HOME|g" scripts/com.ainotetaker.server.plist > ~/Library/LaunchAgents/com.ainotetaker.server.plist
+    launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.ainotetaker.server.plist
+
+  Manage:
+    launchctl print    gui/$(id -u)/com.ainotetaker.server     # status
+    launchctl kickstart -k gui/$(id -u)/com.ainotetaker.server # restart (after editing .env)
+    launchctl bootout  gui/$(id -u)/com.ainotetaker.server     # stop & remove
+  Logs: ~/Library/Logs/ainotetaker.log
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.ainotetaker.server</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>__HOME__/AiNotetaker/.venv/bin/python</string>
+        <string>__HOME__/AiNotetaker/run.py</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>__HOME__/AiNotetaker</string>
+
+    <!-- Start at login and keep it running (restarts if it ever exits). -->
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
+
+    <key>StandardOutPath</key>
+    <string>__HOME__/Library/Logs/ainotetaker.log</string>
+    <key>StandardErrorPath</key>
+    <string>__HOME__/Library/Logs/ainotetaker.log</string>
+</dict>
+</plist>
